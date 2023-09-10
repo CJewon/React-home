@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel">
-    const root = document.getElementById("root");
 
-    function App() {
-      const [counter, modifier] = React.useState(0); // React.useState(초기값, 초기값을 바꿔주는 함수)
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      console.log(data);
-      return (
-        <div>
-          <h3>Total clicks: {data[0]}</h3>
-          <button>Click me</button>
-        </div>
-      );
-    }
-    ReactDOM.render(<App />, root);
-  </script>
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  const root = document.getElementById("root");
+
+  // ReactDOM을 가져옵니다.
+  const { useState } = React;
+  const { render } = ReactDOM;
+
+  function App() {
+    const [counter, modifier] = useState(0);
+
+    const onClick = () => {
+      counter = counter + 1;
+    };
+
+    return (
+      <div>
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={onClick}>Click me</button>
+      </div>
+    );
+  }
+
+  // render를 사용하여 App 컴포넌트를 root에 렌더링합니다.
+  ReactDOM.render(<App />, root);
+</script>
+
 </html>
